@@ -14,6 +14,8 @@ const orderRoutes = require("./routes/orderRoute");
 
 // [SECTION] Environment Setup
 const port = 4000;
+const mongoURI = process.env.MEOW_EXPRESS_MONGODB_URI || "mongodb://localhost:27017/Meow-Express-API"; // Use environment variable or default to local MongoDB
+
 
 // [SECTION] Server Setup
 // Creates an "app" variable that stores the result of the "express" function that initializes our express application and allows us access to different methods that wiill make backend creation easy
@@ -25,7 +27,7 @@ app.use(cors());
 
 
 // [SECTION] Database Connection
-mongoose.connect("mongodb+srv://admin:1234567890@cluster0.7xmzncx.mongodb.net/Meow-Express-API?retryWrites=true&w=majority")
+mongoose.connect(mongoURI);
 
 mongoose.connection.once('open', () => console.log('Now connected to MongoDB Atlas.'));
 
