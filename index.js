@@ -1,5 +1,5 @@
 // [SECTION] Dependencies and Modules
-require('dotenv').config();
+// require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -15,8 +15,7 @@ const cartRoutes = require("./routes/cartRoute");
 const orderRoutes = require("./routes/orderRoute");
 
 // [SECTION] Environment Setup
-const port = 4000;
-const mongoURI = process.env.MEOW_EXPRESS_MONGODB_URI || "mongodb://localhost:27017/Meow-Express-API"; // Use environment variable or default to local MongoDB
+const port = 4000; 
 
 
 // [SECTION] Server Setup
@@ -29,7 +28,7 @@ app.use(cors());
 
 
 // [SECTION] Database Connection
-mongoose.connect(mongoURI);
+mongoose.connect("mongodb+srv://admin:1234567890@cluster0.7xmzncx.mongodb.net/Meow-Express-API?retryWrites=true&w=majority")
 
 mongoose.connection.once('open', () => console.log('Now connected to MongoDB Atlas.'));
 
